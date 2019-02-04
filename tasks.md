@@ -78,10 +78,10 @@ See example gif:
 		- Bayesian Networks 
 		- Fitting Regression Curve with Bayesian Modeling 
 
-	10. Neural Network Theory Notebook ()
+	10. Neural Network Theory Notebook (Rishov Chatterjee)
 		- Up for Discussion 
 
-	11. Support Vector Machine Theory Notebook
+	11. Support Vector Machine Theory Notebook (Rishov Chatterjee)
 		- Up for Discussion 
 
 ## Hands-On Tasks 
