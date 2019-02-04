@@ -37,7 +37,7 @@ See example gif:
 		- Normalization and the Guassian Distribution 
 		- Confidence Testing 
 
-	5. Introductory Python for Data Science Notebook 
+	5. Introductory Python for Data Science Notebook (Radh)
 		- Variables and Data Types 
 		- Introductory Data Structures 
 		- For Loops and While Loops 
@@ -45,7 +45,7 @@ See example gif:
 		- Basic Numpy and Pandas Operations 
 		- Basic Matplotlib Visualization
   
-	6. Buzz Words In-Depth Notebook 
+	6. Buzz Words In-Depth Notebook (Radh)
 		- Data Engineering 
 		- Machine Learning 
 		- Deep Learning 
