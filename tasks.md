@@ -2,6 +2,10 @@
 
 This file is for the collaborators to decide which tasks they would like to contribute to.
 
+If you want to contribute to a task, write your name in parentheses after the name of the task. 
+
+See example gif: 
+
 ## Theory Tasks
 
 	1. Intro Data Science Notebook 
