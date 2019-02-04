@@ -25,7 +25,7 @@ See example gif:
 		- How does one become a Decision Scientist? 
 		- Becoming Good at Decision Science 
 		
-	3. Data Science and Decision Science Compare / Contrast Notebook 
+	3. Data Science and Decision Science Compare / Contrast Notebook (Rishov Chatterjee)
 		- What is the difference between Data Science and Decision Science?
 		- How can the two fields be used together? 
 		
