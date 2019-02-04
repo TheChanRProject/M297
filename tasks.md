@@ -86,36 +86,36 @@ See example gif:
 
 ## Hands-On Tasks 
 
-	1. Simple Linear Regression on Boston Housing Dataset 
+	1. Simple Linear Regression on Boston Housing Dataset (Radh, Manan Patel, Daffy)
 		- Loading the Boston Dataset 
 		- Exploratory Data Analysis on Boston Dataset 
 		- Predicting Boston House Price from Single Feature 
 		- Evaluating Prediction
 
-	2. Multiple Linear Regression on Boston Housing Dataset 
+	2. Multiple Linear Regression on Boston Housing Dataset (Radh, Manan Patel, Daffy)
 		- Loading the Boston Dataset 
 		- Exploratory Data Analysis on Boston Dataset
 		- Checking for Multicollinearity 
 		- Building a Predictive Model 
 		- Evaluating Prediction 
 
-	3. Bayesian Linear Regression on Boston Housing Dataset 
+	3. Bayesian Linear Regression on Boston Housing Dataset (Rishov Chatterjee, Manan Patel)
 		- Up for Discussion 
 
-	4. Deep Learning Regression on Boston Housing Dataset
+	4. Deep Learning Regression on Boston Housing Dataset (Rishov Chatterjee, Manan Patel)
 		- Up for Discussion 
 
-	5. Kernel-based (SVM) Linear Regression on Boston Housing Dataset
+	5. Kernel-based (SVM) Linear Regression on Boston Housing Dataset (Rishov Chatterjee, Manan Patel)
 		- Up for Discussion 
 
 ## Website 
 
-	1. Get CreativeTim Bootstrap Template 
-	2. Get Static Web Design Completed 
-	3. Incorporate Flask Backend and Run Template 
-	4. Build User Registration and Log-In Form 
-	5. Add Social Authentication (Google, GitHub)
-	6. Embed Google Colab Notebooks Dashboard for Registered Students 
-	7. Extract Registered Users Form Data as a Postgres DB 
-	8. Run EDA on Dataset from Postgre DB for Web Analytics 
+	1. Get CreativeTim Bootstrap Template (Rishov Chatterjee, Radh)
+	2. Get Static Web Design Completed (Rishov Chatterjee, Radh)
+	3. Incorporate Flask Backend and Run Template (Radh, Daffy)
+	4. Build User Registration and Log-In Form (Radh, Daffy)
+	5. Add Social Authentication (Google, GitHub) (Rishov Chatterjee, Radh, Daffy)
+	6. Embed Google Colab Notebooks Dashboard for Registered Students (Rishov Chatterjee)
+	7. Extract Registered Users Form Data as a Postgres DB (Manan Patel)
+	8. Run EDA on Dataset from Postgre DB for Web Analytics (Manan Patel)
 		
