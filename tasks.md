@@ -6,9 +6,11 @@ If you want to contribute to a task, write your name in parentheses after the na
 
 See example gif: 
 
+![title]()
+
 ## Theory Tasks
 
-	1. Intro Data Science Notebook 
+	1. Intro Data Science Notebook (Rishov Chatterjee)
 		- What is Data Science? 
 		- What are the different roles one can have in Data Science? 
 		- What is the typical workflow of a Data Scientist? 
@@ -16,7 +18,7 @@ See example gif:
 		- Personalized Learning Approach for Data Science 
 		- What's the difference between Data Analyst and Data Scientist? 
  
-	2. Intro Decision Science Notebook 
+	2. Intro Decision Science Notebook (Rishov Chatterjee)
 		- What is Decision Science?
 		- Why do we need Decision Science? 
 		- What is the typical workflow of a Decision Scientist? 
