@@ -6,7 +6,7 @@ If you want to contribute to a task, write your name in parentheses after the na
 
 See example gif: 
 
-![title]()
+![title](tasks.gif)
 
 ## Theory Tasks
 
