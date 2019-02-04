@@ -77,4 +77,30 @@ This file is for the collaborators to decide which tasks they would like to cont
 
 	11. Support Vector Machine Theory Notebook
 		- Up for Discussion 
+
+## Hands-On Tasks 
+
+	1. Simple Linear Regression on Boston Housing Dataset 
+		- Loading the Boston Dataset 
+		- Exploratory Data Analysis on Boston Dataset 
+		- Predicting Boston House Price from Single Feature 
+		- Evaluating Prediction
+
+	2. Multiple Linear Regression on Boston Housing Dataset 
+		- Loading the Boston Dataset 
+		- Exploratory Data Analysis on Boston Dataset
+		- Checking for Multicollinearity 
+		- Building a Predictive Model 
+		- Evaluating Prediction 
+
+	3. Bayesian Linear Regression on Boston Housing Dataset 
+		- Up for Discussion 
+
+	4. Deep Learning Regression on Boston Housing Dataset
+		- Up for Discussion 
+
+	5. Kernel-based (SVM) Linear Regression on Boston Housing Dataset
+		- Up for Discussion 
+
+## Website 
 		
