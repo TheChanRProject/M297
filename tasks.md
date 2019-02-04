@@ -29,7 +29,7 @@ See example gif:
 		- What is the difference between Data Science and Decision Science?
 		- How can the two fields be used together? 
 		
-	4. Introductory Inferential Statistics Theory Notebook 
+	4. Introductory Inferential Statistics Theory Notebook (Rishov Chatterjee)
 		- Measures of Central Tendency 
 		- Skedasticity and Skew 
 		- Kurtosis 
