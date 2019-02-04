@@ -110,4 +110,6 @@ This file is for the collaborators to decide which tasks they would like to cont
 	4. Build User Registration and Log-In Form 
 	5. Add Social Authentication (Google, GitHub)
 	6. Embed Google Colab Notebooks Dashboard for Registered Students 
+	7. Extract Registered Users Form Data as a Postgres DB 
+	8. Run EDA on Dataset from Postgre DB for Web Analytics 
 		
