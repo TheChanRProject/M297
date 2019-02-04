@@ -103,4 +103,11 @@ This file is for the collaborators to decide which tasks they would like to cont
 		- Up for Discussion 
 
 ## Website 
+
+	1. Get CreativeTim Bootstrap Template 
+	2. Get Static Web Design Completed 
+	3. Incorporate Flask Backend and Run Template 
+	4. Build User Registration and Log-In Form 
+	5. Add Social Authentication (Google, GitHub)
+	6. Embed Google Colab Notebooks Dashboard for Registered Students 
 		
