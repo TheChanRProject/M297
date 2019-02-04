@@ -52,7 +52,7 @@ See example gif:
 		- Big Data Engineering 
 		- Quantum Computing and Quantum Machine Learning 
 
-	7. Simple Linear Regression Theory Notebook (Rishov Chatterjee)
+	7. Simple Linear Regression Theory Notebook (Rishov Chatterjee, Manan Patel)
 		- The predictive model 
 		- Meaning of the Line of Best Fit
 		- Sum of Squared Errors Cost Function 
@@ -60,7 +60,7 @@ See example gif:
 		- Optimal Results
 		- Performance Metrics 
 
-	8. Multiple Linear Regression Theory Notebook (Rishov Chatterjee)
+	8. Multiple Linear Regression Theory Notebook (Rishov Chatterjee, Manan Patel)
 		- The predictive model 
 		- Meaning of the Hyperplane of Best Fit 
 		- Sum of Squared Errors Cost Function
@@ -78,7 +78,7 @@ See example gif:
 		- Bayesian Networks 
 		- Fitting Regression Curve with Bayesian Modeling 
 
-	10. Neural Network Theory Notebook 
+	10. Neural Network Theory Notebook ()
 		- Up for Discussion 
 
 	11. Support Vector Machine Theory Notebook
