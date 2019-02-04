@@ -53,4 +53,28 @@ This file is for the collaborators to decide which tasks they would like to cont
 		- Minimizing Cost Function 
 		- Optimal Results
 		- Performance Metrics 
+
+	8. Multiple Linear Regression Theory Notebook 
+		- The predictive model 
+		- Meaning of the Hyperplane of Best Fit 
+		- Sum of Squared Errors Cost Function
+		- Minimizing Cost Function 
+		- Optimal Results
+		- Performance Metrics 
+
+	9. Bayesian Modeling Theory Notebook 
+		- Probability Primer
+		- Gaussian Distribution 
+		- Baye's Rule
+		- Prior Probability
+		- Posterior Probability
+		- Naive Baye's Classifier 
+		- Bayesian Networks 
+		- Fitting Regression Curve with Bayesian Modeling 
+
+	10. Neural Network Theory Notebook 
+		- Up for Discussion 
+
+	11. Support Vector Machine Theory Notebook
+		- Up for Discussion 
 		
