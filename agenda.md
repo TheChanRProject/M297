@@ -21,18 +21,19 @@
 
 ## Half Hour 1:  
 
-- Introduction to Python Programming 
+- Introduction to Python for Data Science  
 - Numpy 
 - Pandas 
+- Matplotlib 
 
 ## Hour 2: 
 
 - M297 Student Representation Activity 
-- Introduction to Linear Regression 
-- Boston Housing Price Prediction Activity 
-
-## Half Hour 2: 
-
 - Machine Learning as a Story 
+- Introduction to Linear Regression 
+
+
+## 
+- Boston Housing Price Prediction Activity 
 - Further Resources to Learn 
 - Potential Summer Internships with ChanR Analytics or STEMCube 
