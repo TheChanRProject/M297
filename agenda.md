@@ -33,7 +33,7 @@
 - Introduction to Linear Regression 
 
 
-## 
+## Half Hour 2:
 - Boston Housing Price Prediction Activity 
 - Further Resources to Learn 
 - Potential Summer Internships with ChanR Analytics or STEMCube 
