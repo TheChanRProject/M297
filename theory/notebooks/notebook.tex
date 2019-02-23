@@ -141,7 +141,7 @@
     \def\gt{>}
     \def\lt{<}
     % Document parameters
-    \title{Python\_DataScience\_Intro}
+    \title{Linear Regression}
     
     
     
@@ -280,50 +280,246 @@
     
 
     
-    \hypertarget{m297-introductory-python-for-data-science}{%
-\section{M297 Introductory Python for Data
-Science}\label{m297-introductory-python-for-data-science}}
+    \hypertarget{linear-regression-beginner-theory}{%
+\section{Linear Regression: Beginner
+Theory}\label{linear-regression-beginner-theory}}
 
-In this notebook, I'll give you a super simple programming introduction
-in Python. Of course there are many advanced things we can do in Python,
-but we'll focus primarily on the kind of Python concepts we need for
-Data Science.
+    This notebook is quite mathematical since we want to understand this
+machine learning algorithm pretty well. We'll work with simple linear
+regression as a starting point where we predict one variable from
+another variable and then we'll look at multiple linear regression where
+we can predict one output variable from multiple input variables.
 
-    \hypertarget{variables}{%
-\subsection{Variables}\label{variables}}
+    \hypertarget{the-main-concept-is-to-make-our-predictions-as-close-to-the-actual-values-as-possible.}{%
+\subsection{The main concept is to make our predictions as close to the
+actual values as
+possible.}\label{the-main-concept-is-to-make-our-predictions-as-close-to-the-actual-values-as-possible.}}
 
-Variables are pretty much like placeholders for information that you
-want to carry in your analysis.
+So how can we make this happen?
 
-For example, if you had some complicated message or number, it would be
-weird to just consistently type that kind of data over and over again so
-we store that information as a variable instead.
+We want to see how far away our predictions are from the actual values,
+but this won't be a simple subtraction because sometimes the prediction
+can be higher than the original and when we want to add up all the
+differences, it can give us an answer that is close to zero.
 
-Let's look at an example:
+In order to deal with this, we square the differences before adding up
+the squared differences.
+
+\[ E = \sum_{i=1}^{N}{(y_i - \hat{y_i})^2} \]
+
+    In the equation above, \$ y\_i \$ represents our actual output values
+and \$ \hat{y_i} \$ represents our prediction values.
+
+A perfect linear regression model is where every single \$ \hat{y_i} \$
+is equal to the \$ y\_i \$ . In reality, this will be pretty much
+impossible, but what we can do is try and adjust the model's parameters
+so it can try and minimize this error to be as close to zero as
+possible.
+
+So let's look at a simple linear regression model.
+
+From high school, you are probably used to \[ y = mx + b \] . Linear
+regression works the same exact way because you are working with two
+parameters: the slope \$ m \$ and the bias term (intercept) \$ b \$ . We
+want to turn this into what a formal machine learning regression model
+looks like:
+
+\[ \hat{y_i} = \beta_1 x_i + \beta_0   \]
+
+In the above equation, \$ \beta\_1 \$ is the same as \$ m \$ and \$
+\beta\_0 \$ is the same as the intercept \$ b \$ .
+
+In some classes, you probably heard of the term, the line of best fit .
+The line of best fit is essentially the regression equation which
+minimizes the error as much as possible. You might be wondering, how
+does one calculate this line of best fit? This requires some
+multivariable calculus for predicting the output from one variable and
+linear algebra for predicting the output from multiple input variables.
+
+In this notebook, I won't go through the entire derivation, but I'll
+show you the important steps to get to the line of the best fit.
+
+\hypertarget{step-1}{%
+\subsection{Step 1:}\label{step-1}}
+
+Substitute the regression model for \$ \hat{y_i} \$ in the error (cost)
+function.
+
+\[ E = \sum_{i=1}^{N}{(y_i - \hat{y_i})^2} \space \space  \space \space \space \space \rightarrow \space \space \space \space \space \space E = \sum_{i=1}^{N}{(y_i - (\beta_1 x_i + \beta_0))^2} \]
+
+\hypertarget{step-2}{%
+\subsection{Step 2:}\label{step-2}}
+
+Take partial derivative of the error function with respect to \$
+\beta\_1 \$ and \$ \beta\_0 \$
+
+\[ \frac{\partial{E}}{\partial{\beta_1}} \space \space  \space \space \space \space = \space \space  \space \space \space \space \sum_{i=1}^{N}{2(y_i - (\beta_1 x_i + \beta_0))(-x_i)} \space \space  \space \space \space \space \rightarrow \space \space \space \space \space \space \beta_1 \sum_{i=1}^{N}{{x_i}^2} + \beta_0 \sum_{i=1}^{N}{x_i} = \sum_{i=1}^{N}{x_i y_i} \]
+
+\[ \frac{\partial{E}}{\partial{\beta_0}} \space \space  \space \space \space \space = \space \space  \space \space \space \space \sum_{i=1}^{N}{2(y_i - (\beta_1 x_i + \beta_0))(-1)} \space \space  \space \space \space \space \rightarrow \space \space \space \space \space \space \beta_1 \sum_{i=1}^{N}{x_i} + \beta_0 N = \sum_{i=1}^{N}{y_i} \]
+
+\hypertarget{step-3}{%
+\subsection{Step 3:}\label{step-3}}
+
+Replace the summations with letters.
+
+\[ C = \sum_{i=1}^{N}{{x_i}^2} \] \[ D = \sum_{i=1}^{N}{x_i} \]
+\[ E = \sum_{i=1}^{N}{x_i y_i} \] \[ F = \sum_{i=1}^{N}{y_i} \]
+
+\[ \rightarrow \]
+
+\[ \beta_1 C + \beta_0 D = E \] \[ \space \]
+\[ \beta_1 D + \beta_0 N = F \]
+
+\hypertarget{step-4}{%
+\subsection{Step 4:}\label{step-4}}
+
+Solve system of equations.
+
+For \$ \beta\_0 \$ :
+
+\[ D * {\beta_1 C + \beta_0 D = E} \]
+
+\[ C * {\beta_1 D + \beta_0 N = F} \]
+
+\[ \beta_1 CD + \beta_0 D^2 = ED \] \[ \text{-}  \]\\
+\[ \beta_0 CD + \beta_1 CN = CF \]
+
+=
+
+\[ \beta_0 ({D^2} - CN) = {ED - CF} \] \[ \space \]
+\[ \beta_0 = \frac{ED - CF}{D^2 - CN} \space \space \space \rightarrow \space \space \space \frac{\sum_{i=1}^{N}{x_i y_i}\sum_{i=1}^{N}{x_i} - \sum_{i=1}^{N}{{x_i}^2} \sum_{i=1}^{N}{y_i}}{N\sum_{i=1}^{N}{{x_i}^2} -  {(\sum_{i=1}^{N}{x_i})}^2} \]
+
+For \$ \beta\_1 \$ :
+
+\[ \beta_1 C + \beta_0 D = E \] \[ \space \]
+\[ \beta_1 D + \beta_0 N = F \]
+
+\[ N * {\beta_0 C + \beta_1 D = E} \] \[ \space \]
+\[ D * {\beta_0 D + \beta_1 N = F} \]
+
+\[ \beta_1 CN + \beta_0 DN = EN \] \[ \space \] \[ \text{-} \]
+\[ \space \] \[ \beta_1 D^2 + \beta_0 DN = FD \] \[ \space \] =
+\[ \space \] \[ \beta_1 ({CN - D^2}) = {EN - FD} \] \[ \space \]
+\[ \beta_1 = \frac{EN - FD}{CN - D^2} = \frac{FD - EN}{D^2 - CN} \space \space \space \rightarrow \space \space \space \frac{N\sum_{i=1}^{N}{x_i y_i} - \sum_{i=1}^{N}{x_i} \sum_{i=1}^{N}{y_i}}{N\sum_{i=1}^{N}{{x_i}^2} -  {(\sum_{i=1}^{N}{x_i})}^2} \]
+
+\hypertarget{step-5}{%
+\subsection{Step 5:}\label{step-5}}
+
+Finding Relation to Sample Means:
+
+Multiplying by 1 / N\^{}2 :
+
+\[ \beta_1 * \frac{\frac{1}{N^2}}{\frac{1}{N^2}} = \frac{N\sum_{i=1}^{N}{x_i y_i} - \sum_{i=1}^{N}{x_i} \sum_{i=1}^{N}{y_i}}{N\sum_{i=1}^{N}{{x_i}^2} -  {(\sum_{i=1}^{N}{x_i})}^2} * \frac{\frac{1}{N^2}}{\frac{1}{N^2}} \]
+
+\[ \beta_0 *\frac{\frac{1}{N^2}}{\frac{1}{N^2}} = \frac{\sum_{i=1}^{N}{x_i y_i}\sum_{i=1}^{N}{x_i} - \sum_{i=1}^{N}{{x_i}^2} \sum_{i=1}^{N}{y_i}}{N\sum_{i=1}^{N}{{x_i}^2} -  {(\sum_{i=1}^{N}{x_i})}^2} * \frac{\frac{1}{N^2}}{\frac{1}{N^2}} \]
+
+\[ \beta_1 = \frac{\bar{xy} - \bar{x}\bar{y}}{{\bar{x^2}} - \bar{x}^2} \]
+
+\[ \beta_0 = \frac{\bar{xy}\bar{x} - \bar{x^2}\bar{y}}{\bar{x^2} - \bar{x}^2} \]
+
+    If we plug in these values of \$ \beta\_1 \$ and \$ \beta\_0 \$ to our
+regression model, we will receive the line of the best fit.
+
+    \hypertarget{linear-regression-example-in-numpy}{%
+\section{Linear Regression Example in
+Numpy}\label{linear-regression-example-in-numpy}}
 
     \begin{Verbatim}[commandchars=\\\{\}]
-{\color{incolor}In [{\color{incolor}2}]:} \PY{n}{a} \PY{o}{=} \PY{l+m+mi}{300000000}
-        \PY{n}{b} \PY{o}{=} \PY{l+m+mi}{700000000}
+{\color{incolor}In [{\color{incolor}9}]:} \PY{k+kn}{import} \PY{n+nn}{numpy} \PY{k}{as} \PY{n+nn}{np}
+        \PY{k+kn}{import} \PY{n+nn}{pandas} \PY{k}{as} \PY{n+nn}{pd} 
+        \PY{o}{\PYZpc{}}\PY{k}{matplotlib} inline
+        \PY{k+kn}{import} \PY{n+nn}{matplotlib}\PY{n+nn}{.}\PY{n+nn}{pyplot} \PY{k}{as} \PY{n+nn}{plt} 
         
+        \PY{n}{data} \PY{o}{=} \PY{n}{pd}\PY{o}{.}\PY{n}{read\PYZus{}csv}\PY{p}{(}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{../data/regression.csv}\PY{l+s+s2}{\PYZdq{}}\PY{p}{)}
+        \PY{n}{data}\PY{o}{.}\PY{n}{head}\PY{p}{(}\PY{p}{)} 
         
-        \PY{n+nb}{print}\PY{p}{(}\PY{n}{a}\PY{p}{)}
-        \PY{n+nb}{print}\PY{p}{(}\PY{n}{b}\PY{p}{)}
+        \PY{n}{X} \PY{o}{=} \PY{n}{data}\PY{p}{[}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{X}\PY{l+s+s1}{\PYZsq{}}\PY{p}{]}
+        \PY{n}{Y} \PY{o}{=} \PY{n}{data}\PY{p}{[}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Y}\PY{l+s+s1}{\PYZsq{}}\PY{p}{]} 
         
-        \PY{c+c1}{\PYZsh{} What if we want to add these together? }
-        
-        \PY{n+nb}{print}\PY{p}{(}\PY{n}{a} \PY{o}{+} \PY{n}{b}\PY{p}{)}
+        \PY{n}{plt}\PY{o}{.}\PY{n}{figure}\PY{p}{(}\PY{n}{figsize}\PY{o}{=}\PY{p}{(}\PY{l+m+mi}{14}\PY{p}{,}\PY{l+m+mi}{8}\PY{p}{)}\PY{p}{)}
+        \PY{n}{plt}\PY{o}{.}\PY{n}{title}\PY{p}{(}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{Scatterplot of X and Y}\PY{l+s+s2}{\PYZdq{}}\PY{p}{,} \PY{n}{size}\PY{o}{=}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{20}\PY{l+s+s2}{\PYZdq{}}\PY{p}{)}
+        \PY{n}{plt}\PY{o}{.}\PY{n}{xlabel}\PY{p}{(}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{Input}\PY{l+s+s2}{\PYZdq{}}\PY{p}{,} \PY{n}{size}\PY{o}{=}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{15}\PY{l+s+s2}{\PYZdq{}}\PY{p}{)}
+        \PY{n}{plt}\PY{o}{.}\PY{n}{ylabel}\PY{p}{(}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{Output}\PY{l+s+s2}{\PYZdq{}}\PY{p}{,} \PY{n}{size}\PY{o}{=}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{15}\PY{l+s+s2}{\PYZdq{}}\PY{p}{)}
+        \PY{n}{plt}\PY{o}{.}\PY{n}{scatter}\PY{p}{(}\PY{n}{X}\PY{p}{,}\PY{n}{Y}\PY{p}{)}
 \end{Verbatim}
 
 
+\begin{Verbatim}[commandchars=\\\{\}]
+{\color{outcolor}Out[{\color{outcolor}9}]:} <matplotlib.collections.PathCollection at 0x110dbd588>
+\end{Verbatim}
+            
+    \begin{center}
+    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{output_6_1.png}
+    \end{center}
+    { \hspace*{\fill} \\}
+    
     \begin{Verbatim}[commandchars=\\\{\}]
-300000000
-700000000
-1000000000
+{\color{incolor}In [{\color{incolor}8}]:} \PY{c+c1}{\PYZsh{} Let\PYZsq{}s create the regression model }
+        
+        \PY{c+c1}{\PYZsh{} For our line of best fit, we know that the denominators for beta 1 and beta 0 are the same so let\PYZsq{}s set up a variable }
+        \PY{n}{X} \PY{o}{=} \PY{n}{np}\PY{o}{.}\PY{n}{array}\PY{p}{(}\PY{n}{X}\PY{p}{)}
+        \PY{n}{Y} \PY{o}{=} \PY{n}{np}\PY{o}{.}\PY{n}{array}\PY{p}{(}\PY{n}{Y}\PY{p}{)} 
+        \PY{n}{denominator} \PY{o}{=} \PY{n}{X}\PY{o}{.}\PY{n}{dot}\PY{p}{(}\PY{n}{X}\PY{p}{)} \PY{o}{\PYZhy{}} \PY{n}{X}\PY{o}{.}\PY{n}{mean}\PY{p}{(}\PY{p}{)} \PY{o}{*} \PY{n}{X}\PY{o}{.}\PY{n}{sum}\PY{p}{(}\PY{p}{)} 
+        \PY{n}{beta\PYZus{}1} \PY{o}{=} \PY{p}{(}\PY{n}{X}\PY{o}{.}\PY{n}{dot}\PY{p}{(}\PY{n}{Y}\PY{p}{)} \PY{o}{\PYZhy{}} \PY{n}{Y}\PY{o}{.}\PY{n}{mean}\PY{p}{(}\PY{p}{)}\PY{o}{*}\PY{n}{X}\PY{o}{.}\PY{n}{sum}\PY{p}{(}\PY{p}{)}\PY{p}{)} \PY{o}{/} \PY{n}{denominator} 
+        \PY{n}{beta\PYZus{}0} \PY{o}{=} \PY{p}{(}\PY{n}{Y}\PY{o}{.}\PY{n}{mean}\PY{p}{(}\PY{p}{)} \PY{o}{*} \PY{n}{X}\PY{o}{.}\PY{n}{dot}\PY{p}{(}\PY{n}{X}\PY{p}{)} \PY{o}{\PYZhy{}} \PY{n}{X}\PY{o}{.}\PY{n}{mean}\PY{p}{(}\PY{p}{)} \PY{o}{*} \PY{n}{X}\PY{o}{.}\PY{n}{dot}\PY{p}{(}\PY{n}{Y}\PY{p}{)}\PY{p}{)} \PY{o}{/} \PY{n}{denominator} 
+        
+        \PY{c+c1}{\PYZsh{} our regression model }
+        
+        \PY{n}{y\PYZus{}hat} \PY{o}{=} \PY{n}{beta\PYZus{}1} \PY{o}{*} \PY{n}{X} \PY{o}{+} \PY{n}{beta\PYZus{}0} 
+        
+        \PY{c+c1}{\PYZsh{} Plotting the line of best fit }
+        
+        \PY{n}{plt}\PY{o}{.}\PY{n}{figure}\PY{p}{(}\PY{n}{figsize}\PY{o}{=}\PY{p}{(}\PY{l+m+mi}{14}\PY{p}{,}\PY{l+m+mi}{8}\PY{p}{)}\PY{p}{)}
+        \PY{n}{plt}\PY{o}{.}\PY{n}{title}\PY{p}{(}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{Scatterplot with Line of Best Fit}\PY{l+s+s2}{\PYZdq{}}\PY{p}{,} \PY{n}{size}\PY{o}{=}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{20}\PY{l+s+s2}{\PYZdq{}}\PY{p}{)}
+        \PY{n}{plt}\PY{o}{.}\PY{n}{xlabel}\PY{p}{(}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{Input}\PY{l+s+s2}{\PYZdq{}}\PY{p}{,} \PY{n}{size}\PY{o}{=}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{15}\PY{l+s+s2}{\PYZdq{}}\PY{p}{)}
+        \PY{n}{plt}\PY{o}{.}\PY{n}{ylabel}\PY{p}{(}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{Output}\PY{l+s+s2}{\PYZdq{}}\PY{p}{,} \PY{n}{size}\PY{o}{=}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{15}\PY{l+s+s2}{\PYZdq{}}\PY{p}{)}
+        \PY{n}{plt}\PY{o}{.}\PY{n}{scatter}\PY{p}{(}\PY{n}{X}\PY{p}{,}\PY{n}{Y}\PY{p}{)}
+        \PY{n}{plt}\PY{o}{.}\PY{n}{plot}\PY{p}{(}\PY{n}{X}\PY{p}{,} \PY{n}{y\PYZus{}hat}\PY{p}{,} \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{g}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)} 
+\end{Verbatim}
 
-    \end{Verbatim}
 
-    \[ y = mx + b \]
+\begin{Verbatim}[commandchars=\\\{\}]
+{\color{outcolor}Out[{\color{outcolor}8}]:} [<matplotlib.lines.Line2D at 0x10d7311d0>]
+\end{Verbatim}
+            
+    \begin{center}
+    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{output_7_1.png}
+    \end{center}
+    { \hspace*{\fill} \\}
+    
+    \hypertarget{assessing-our-model}{%
+\subsection{Assessing Our Model}\label{assessing-our-model}}
 
+For linear regression models, we assess the performance by looking at
+essentially the accuracy metric which in our case is going to be known
+as the \$ r\^{}2 \$ value.
+
+The \$ r\^{}2 \$ value is calculated as follows:
+
+\[ r^2 = \frac{1 - (y_i - \hat{y_i})^2}{(y_i - \bar{y_i})^2} \]
+
+This value can be anywhere between 0 and 1. As a percentage, the closer
+we are to 100\% shows a very accurate model.
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}14}]:} \PY{c+c1}{\PYZsh{} Getting our r\PYZhy{}square value }
+         
+         \PY{n}{difference\PYZus{}one} \PY{o}{=} \PY{n}{Y} \PY{o}{\PYZhy{}} \PY{n}{y\PYZus{}hat} 
+         \PY{n}{difference\PYZus{}two} \PY{o}{=} \PY{n}{Y} \PY{o}{\PYZhy{}} \PY{n}{Y}\PY{o}{.}\PY{n}{mean}\PY{p}{(}\PY{p}{)} 
+         
+         \PY{n}{r\PYZus{}square} \PY{o}{=} \PY{l+m+mi}{1} \PY{o}{\PYZhy{}} \PY{n}{difference\PYZus{}one}\PY{o}{.}\PY{n}{dot}\PY{p}{(}\PY{n}{difference\PYZus{}one}\PY{p}{)} \PY{o}{/} \PY{n}{difference\PYZus{}two}\PY{o}{.}\PY{n}{dot}\PY{p}{(}\PY{n}{difference\PYZus{}two}\PY{p}{)} 
+         
+         
+         
+         \PY{k+kn}{from} \PY{n+nn}{IPython}\PY{n+nn}{.}\PY{n+nn}{display} \PY{k}{import} \PY{n}{Markdown}\PY{p}{,} \PY{n}{display}
+         
+         \PY{n}{display}\PY{p}{(}\PY{n}{Markdown}\PY{p}{(}\PY{n}{f}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{Our \PYZdl{} r\PYZca{}2 \PYZdl{} value is: }\PY{l+s+s2}{\PYZob{}}\PY{l+s+s2}{round(r\PYZus{}square*100,3)\PYZcb{}}\PY{l+s+s2}{\PYZpc{}}\PY{l+s+s2}{\PYZdq{}}\PY{p}{)}\PY{p}{)}
+\end{Verbatim}
+
+
+    Our \$ r\^{}2 \$ value is: 99.118\%
+
+    
 
     % Add a bibliography block to the postdoc
     
