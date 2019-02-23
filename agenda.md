@@ -27,6 +27,7 @@
 
 ## Hour 2: 
 
+- M297 Student Representation Activity 
 - Introduction to Linear Regression 
 - Boston Housing Price Prediction Activity 
 
